@@ -17,6 +17,8 @@ public class RsmChallenge {
         System.out.println("\nHash codes:");
         System.out.println("Film 1 hash code: " + inception2010.hashCode());
         System.out.println("Film 2 hash code: " + inception2020.hashCode());
+        
+        //edited text to contain words
     
     }    
 }
