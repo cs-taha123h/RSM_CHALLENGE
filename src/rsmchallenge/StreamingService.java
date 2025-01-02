@@ -6,7 +6,7 @@ public class StreamingService {
    private double price;
    private Set<Film> films;
    
-   public StreamingService(String Name, double price){
+   public StreamingService(String name, double price){
         this.name = name;
         this.price = price;
         this.films = new HashSet<>();

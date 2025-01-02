@@ -57,6 +57,16 @@ public class Film {
         return year == film.year && name.equals(film.name);
     }
     
-    //@Override
-    //public 
+    @Override
+    public int hashCode(){
+        int result = name.hashCode();
+        result = 31 * result + year;
+        return result;
+    }
+    
+    @Override
+    public String toString(){
+        return "name='" + name + "', year=" + year + ", genre='" + genre +
+               "', rating=" + rating + " stars, runtime=" + runtime + " mins";
+    }
 }
