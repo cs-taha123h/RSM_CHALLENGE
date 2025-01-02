@@ -1,0 +1,1 @@
+This project is part of a coding challenge to demonstrate Object-Oriented Programming (OOP) skills in Java.
