@@ -30,7 +30,11 @@ public class Film {
         return rating;
     }
     public void setRating(double rating) {
-        this.rating = rating;
+        if (rating >= 0 && rating <= 5) {
+            this.rating = rating;
+        } else {
+            throw new IllegalArgumentException("Rating must be between 0 and 5.");
+        }
     }
     public int getRuntime() {
         return runtime;
