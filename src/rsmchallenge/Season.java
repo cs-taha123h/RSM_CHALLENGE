@@ -6,11 +6,13 @@ public class Season {
     private int yearOfRelease;
     private int numberOfEpisodes;
     private StreamingService streamingService;
+    private TvShow tvshow;
 
-    public Season(int seasonNumber, int yearOfRelease, int numberOfEpisodes) {
+    public Season(int seasonNumber, int yearOfRelease, int numberOfEpisodes, TvShow tvshow) {
         this.seasonNumber = seasonNumber;
         this.yearOfRelease = yearOfRelease;
         this.numberOfEpisodes = numberOfEpisodes;
+        this.tvshow = tvshow;
     }
 
     public int getSeasonNumber() {
@@ -36,7 +38,8 @@ public class Season {
         if (obj == null || getClass() != obj.getClass()) return false;
         Season season = (Season) obj;
         return seasonNumber == season.seasonNumber &&
-               yearOfRelease == season.yearOfRelease;
+               yearOfRelease == season.yearOfRelease;// &&
+               //tvshow == season.tvshow;
     }
 
     @Override

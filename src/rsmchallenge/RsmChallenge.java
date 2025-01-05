@@ -21,9 +21,9 @@ public class RsmChallenge {
         System.out.println("Adding Breaking Bad: " + primeVideo.addTVShow(breakingBad)); // Should succeed (different service)
 
         // Create seasons
-        Season season1 = new Season(1, 2008, 7);
-        Season season2 = new Season(2, 2009, 13);
-        Season season3 = new Season(3, 2010, 13);
+        Season season1 = new Season(1, 2008, 7, breakingBad);
+        Season season2 = new Season(2, 2009, 13, breakingBad);
+        Season season3 = new Season(3, 2010, 13, breakingBad);
 
         System.out.println("\nAdding seasons to Breaking Bad on Netflix...");
         System.out.println("Adding Season 1: " + netflix.addSeasonToTVShow(breakingBad, season1));
@@ -36,10 +36,11 @@ public class RsmChallenge {
         System.out.println("Adding Season 3: " + primeVideo.addSeasonToTVShow(breakingBad, season3)); // Should succeed
 
         System.out.println("\nAdding seasons to The Office on Netflix...");
-        Season officeSeason1 = new Season(1, 2005, 6);
-        Season officeSeason2 = new Season(2, 2006, 22);
+        Season officeSeason1 = new Season(1, 2008, 6, theOffice);
+        Season officeSeason2 = new Season(2, 2009, 22, theOffice);
         System.out.println("Adding Season 1: " + netflix.addSeasonToTVShow(theOffice, officeSeason1));
         System.out.println("Adding Season 2: " + netflix.addSeasonToTVShow(theOffice, officeSeason2));
+        System.out.println("Adding office to netflix"+  netflix.addTVShow(theOffice)); 
 
         // List TvShows and their seasons
         System.out.println("\nNetflix TvShows:");
