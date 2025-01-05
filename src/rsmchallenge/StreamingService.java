@@ -4,11 +4,15 @@ import java.util.Set;
 public class StreamingService {
    private String name;
    private double price;
+   private Set<TvShow> tvShows;
+   private Set<Season> exclusiveSeasons;
    private Set<Film> films;
    
    public StreamingService(String name, double price){
         this.name = name;
         this.price = price;
+        this.tvShows = new HashSet<>();
+        this.exclusiveSeasons = new HashSet<>();
         this.films = new HashSet<>();
    }
    
@@ -55,6 +59,33 @@ public class StreamingService {
         }
     }
     
+    //TV seasons below:
+    
+    public boolean addTVShow(TvShow tvShow) {
+        return tvShows.add(tvShow);
+    }
+
+    public boolean addSeasonToTVShow(TvShow tvShow, Season season) {
+        if (exclusiveSeasons.contains(season)) {
+            return false;
+        }
+        for (TvShow show : tvShows) {
+            if (show.equals(tvShow)) {
+                if (show.addSeason(season)) {
+                    exclusiveSeasons.add(season);
+                    season.setStreamingService(this);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void listTVShows() {
+        for (TvShow show : tvShows) {
+            System.out.println(show);
+        }
+    }
     @Override
     public String toString(){
         return "StreamingService name='" + name + "', price= £" + price;
