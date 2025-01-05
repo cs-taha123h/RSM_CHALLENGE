@@ -36,12 +36,16 @@ public class TvShow {
             throw new IllegalArgumentException("Rating must be between 0 and 5.");
         }
     }
+    
+    //checks if a season is already in a tvshow otherwise returns false
     public boolean addSeason(Season season) {
         if (!seasons.contains(season)) {
             return seasons.add(season);
         }
         return false;
     }
+    
+    //overide of equals method to allow comparision between diffrent object instances 
     @Override
     public boolean equals(Object obj) {
         if (this == obj){
@@ -54,6 +58,8 @@ public class TvShow {
         return name.equals(tvshow.name);
     }
     
+
+    //overide hashcode so hashcodes are consistent for each tvshow based on name
     @Override
     public int hashCode() {
         return Objects.hash(name);
@@ -61,11 +67,11 @@ public class TvShow {
     
     @Override
     public String toString() {
-        return "TVShow{" +
-               "name='" + name + '\'' +
-               ", genre='" + genre + '\'' +
+        return "TVShow{ " +
+               "name='" + name +
+               ", genre='" + genre +
                ", rating=" + rating +
                ", seasons=" + seasons +
-               '}';
+               "}";
     }
 }

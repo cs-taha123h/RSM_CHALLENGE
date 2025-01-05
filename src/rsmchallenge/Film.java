@@ -40,7 +40,7 @@ public class Film {
         return runtime;
     }
     
-    //streaming service related stuff:
+   
     public StreamingService getCurrentService() {
         return currentService;
     }
@@ -61,10 +61,11 @@ public class Film {
         return year == film.year && name.equals(film.name);
     }
     
+    //overide hashcode so hashcodes are consistent for each film based on name and year
     @Override
     public int hashCode(){
         int result = name.hashCode();
-        result = 31 * result + year;
+        result = result + year;
         return result;
     }
     

@@ -64,7 +64,8 @@ public class StreamingService {
     public boolean addTVShow(TvShow tvShow) {
         return tvShows.add(tvShow);
     }
-
+    
+    //if a season is already assigned to a tvshow this will return false since it wall then already be assigned a streaming service
     public boolean addSeasonToTVShow(TvShow tvShow, Season season) {
         if (exclusiveSeasons.contains(season)) {
             return false;
@@ -79,6 +80,21 @@ public class StreamingService {
             }
         }
         return false;
+    }
+    
+    public void listexclusiveseason(TvShow show){
+        boolean foundSeason = false;
+        
+        for (Season season: exclusiveSeasons){
+            if(show.equals(season.getTvShow())){
+                System.out.println(season);
+                foundSeason = true; 
+            }
+        }
+        
+        if(!foundSeason){
+            System.out.println("There are no exclusive seasons for this show on " + name);
+        }
     }
 
     public void listTVShows() {

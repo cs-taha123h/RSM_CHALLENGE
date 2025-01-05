@@ -27,19 +27,23 @@ public class Season {
     public StreamingService getStreamingService() {
         return streamingService;
     }
+    public TvShow getTvShow(){
+        return tvshow;
+    }
 
     public void setStreamingService(StreamingService streamingService) {
         this.streamingService = streamingService;
     }
 
+    //updated equals method to allow for shows with the same season number and release year which are attached to a diffrent show
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Season season = (Season) obj;
         return seasonNumber == season.seasonNumber &&
-               yearOfRelease == season.yearOfRelease;// &&
-               //tvshow == season.tvshow;
+               yearOfRelease == season.yearOfRelease &&
+               tvshow == season.tvshow;
     }
 
     @Override
@@ -49,11 +53,11 @@ public class Season {
 
     @Override
     public String toString() {
-        return "Season{" +
+        return "Season{ " +
                "seasonNumber=" + seasonNumber +
                ", yearOfRelease=" + yearOfRelease +
                ", numberOfEpisodes=" + numberOfEpisodes +
-               ", streamingService=" + (streamingService != null ? streamingService.getName() : "None") +
-               '}';
+               ", streamingService=" + streamingService.getName() +
+               " }";
     }
 }
